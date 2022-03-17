@@ -4,9 +4,37 @@ import math
 import matplotlib.pyplot as plt
 
 # declaring the radii of small and big circles
-# used to be 3, 24
-smallR = float(input("enter the radius of the inner circle: "))
-bigR = float(input("enter the radius of the outer circle: "))
+while True:
+    smallR = input("Radius of inner circle: (default --> 3) ") or 3
+    try:
+        smallR = int(smallR)
+        print("Radius is an integer.")
+        print("Using radius: ", smallR)
+        break
+    except ValueError:
+        try:
+            float(smallR)
+            print("Radius is a float.")
+            print("Using inner radius: ", smallR)
+            break
+        except ValueError:
+            print("This is not a valid radius. Please enter a valid number")
+
+while True:
+    bigR = input("Radius of outer circle: (default --> 24) ") or 24
+    try:
+        bigR = int(bigR)
+        print("Radius is an integer.")
+        print("Using radius: ", bigR)
+        break
+    except ValueError:
+        try:
+            float(bigR)
+            print("Radius is a float.")
+            print("Using outer radius: ", bigR)
+            break
+        except ValueError:
+            print("This is not a valid radius. Please enter a valid number")
 
 # find the perimeter of circle
 perimeterSmall = 2 * math.pi * smallR
@@ -42,7 +70,7 @@ for i in range(1, 10000, 10):
     # plotting the points on the graph
     # x --> triangles
     # y --> fullArea
-    #    print(" Area of this cursed star is: ", fullArea)
+    print(" Area of this cursed star with ", triangles, "triangles is", fullArea)
     plt.plot(triangles, fullArea, marker="o", markersize=2, markeredgecolor="red", markerfacecolor="red")
 
 # display the graph :D
