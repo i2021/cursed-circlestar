@@ -52,12 +52,12 @@ for i in range(1, 10000, 10):
     halfArcLen = arcLen / 2
 
     # find the angle between b & c (smallR & bigR)
-    theta = halfArcLen / ((math.pi / 180) / smallR)
+    theta = (halfArcLen / (2 * smallR * math.pi)) * 360
 
     # find the missing side
-    sideA = math.sqrt((smallR ** 2) + (bigR ** 2) - (2 * smallR * bigR) * math.cos(theta))
+    sideA = math.sqrt((bigR ** 2) + (smallR ** 2) - (2 * bigR * smallR) * math.cos(theta))
 
-    # find the area using Heron's Formula
+    # find the area using Heron's Formula where s --> perimeter
     # c --> bigR
     # b --> smallR
     # a --> sideA
