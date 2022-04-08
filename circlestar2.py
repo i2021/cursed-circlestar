@@ -55,7 +55,7 @@ for i in range(1, 10000, 10):
     theta = (halfArcLen / (2 * smallR * math.pi)) * 360
 
     # find the missing side
-    sideA = math.sqrt((bigR ** 2) + (smallR ** 2) - (2 * bigR * smallR) * math.cos(theta))
+    sideA = math.sqrt((bigR ** 2) + (smallR ** 2) - (2 * bigR * smallR) * math.cos(math.radians(theta)))
 
     # find the area using Heron's Formula where s --> perimeter
     # c --> bigR
